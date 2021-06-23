@@ -1,0 +1,37 @@
+var car = { 
+    registrationNumber: "GA12345",
+    brand: "Toyota",
+
+    displayDetails: function(){
+        console.log(this.registrationNumber + " " + this.brand);
+    }
+}
+
+car.displayDetails();
+
+var myCarDetails = car.displayDetails.bind(car); 
+myCarDetails();
+
+var car = { 
+    registrationNumber: "GA12345",
+    brand: "Toyota",
+
+    displayDetails: function(ownerName){
+        console.log(ownerName + ", this is your car: " + this.registrationNumber + " " + this.brand);
+    }
+}
+
+var myCarDetails = car.displayDetails.bind(car, "Vivian");
+
+var car = { 
+    registrationNumber: "GA12345",
+    brand: "Toyota"
+}
+
+function displayDetails(ownerName) {
+    console.log(ownerName + ", this is your car: " + this.registrationNumber + " " + this.brand);
+}
+
+displayDetails.apply(car, ["Vivian"]);
+
+displayDetails.call(car, "Vivian");
